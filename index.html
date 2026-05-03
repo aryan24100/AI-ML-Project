@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>IILM University — Greater Noida</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0d2b5e;--navy-dark:#091e45;--navy-mid:#1a3c7a;
+  --gold:#c8940a;--gold-light:#e8a820;--gold-pale:#fdf3d8;
+  --white:#ffffff;--off:#f8f7f4;--gray:#6b7280;--light:#e5e7eb;--text:#1a1a2e;
+  --sans:'DM Sans',sans-serif;--serif:'Playfair Display',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--text);background:var(--white);overflow-x:hidden}
+
+/* TOPBAR */
+.topbar{background:var(--navy-dark);color:#a8b8d8;font-size:12px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.topbar-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
+.topbar-links,.topbar-contact{display:flex;gap:20px}
+.topbar a{color:#a8b8d8;text-decoration:none;transition:color .2s}
+.topbar a:hover{color:var(--gold-light)}
+
+/* NAV */
+nav{background:var(--navy);position:sticky;top:0;z-index:900;box-shadow:0 2px 20px rgba(0,0,0,.3)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-badge{width:46px;height:46px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px;font-weight:700;color:var(--navy-dark);flex-shrink:0}
+.logo-name{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--white);display:block;line-height:1}
+.logo-sub{font-size:10px;color:#a8b8d8;letter-spacing:.5px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links a{color:#c8d8ef;font-size:13.5px;font-weight:500;text-decoration:none;padding:8px 14px;border-radius:6px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover{background:rgba(255,255,255,.1);color:var(--white)}
+.nav-links a.active{color:var(--gold-light)}
+.nav-cta{background:var(--gold)!important;color:var(--navy-dark)!important;font-weight:600!important;border-radius:6px;padding:9px 18px!important}
+.nav-cta:hover{background:var(--gold-light)!important}
+
+/* HERO */
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden;background:var(--navy)}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0a1e45 0%,#0d2b5e 55%,#12357a 100%);z-index:0}
+.hero-dots{position:absolute;inset:0;opacity:.06;background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:40px 40px;z-index:1}
+.hero-glow{position:absolute;right:-80px;top:-80px;width:550px;height:550px;background:radial-gradient(circle,rgba(200,148,10,.14) 0%,transparent 70%);z-index:1}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-tag{display:inline-block;background:rgba(200,148,10,.18);color:var(--gold-light);font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:20px;border:1px solid rgba(200,148,10,.3)}
+.hero h1{font-family:var(--serif);font-size:clamp(34px,5vw,56px);font-weight:700;color:var(--white);line-height:1.12;margin-bottom:20px}
+.hero h1 em{color:var(--gold-light);font-style:normal}
+.hero-desc{font-size:16px;color:#a8c0e0;line-height:1.75;margin-bottom:36px;max-width:480px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-gold{background:var(--gold);color:var(--navy-dark);font-weight:600;font-size:14px;padding:14px 28px;border-radius:8px;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .25s;font-family:var(--sans)}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,148,10,.3)}
+.btn-ghost{background:transparent;color:var(--white);font-weight:500;font-size:14px;padding:13px 26px;border-radius:8px;text-decoration:none;border:1.5px solid rgba(255,255,255,.3);display:inline-flex;align-items:center;gap:8px;transition:all .25s}
+.btn-ghost:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.06)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.stat{text-align:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:18px 10px}
+.stat-num{font-family:var(--serif);font-size:28px;font-weight:700;color:var(--gold-light)}
+.stat-label{font-size:10.5px;color:#8aa0c8;margin-top:3px;text-transform:uppercase;letter-spacing:.5px}
+.hero-right{display:flex;flex-direction:column;gap:16px}
+.hero-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:20px;backdrop-filter:blur(10px)}
+.hero-card-title{font-size:12px;font-weight:600;color:var(--gold-light);text-transform:uppercase;letter-spacing:.8px;margin-bottom:12px}
+.prog-item{display:flex;align-items:center;gap:10px;color:#c8d8ef;font-size:13.5px;padding:5px 0}
+.prog-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0}
+
+/* STATS BAR */
+.stats-bar{background:var(--gold);padding:18px 0}
+.stats-bar-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr)}
+.sbar-item{text-align:center;border-right:1px solid rgba(0,0,0,.12);padding:4px}
+.sbar-item:last-child{border:none}
+.sbar-num{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--navy-dark)}
+.sbar-label{font-size:10.5px;color:rgba(9,30,69,.7);text-transform:uppercase;letter-spacing:.6px;margin-top:2px}
+
+/* SECTIONS */
+section{padding:80px 0}
+.section-inner{max-width:1200px;margin:0 auto;padding:0 24px}
+.section-label{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.section-title{font-family:var(--serif);font-size:clamp(26px,3.5vw,38px);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:14px}
+.section-desc{font-size:15px;color:var(--gray);line-height:1.75;max-width:580px}
+
+/* PROGRAMS */
+.programs{background:var(--off)}
+.prog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:44px}
+.prog-card{background:var(--white);border:1px solid var(--light);border-radius:14px;padding:26px 22px;transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+.prog-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--navy);transition:background .3s}
+.prog-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(13,43,94,.12);border-color:rgba(13,43,94,.2)}
+.prog-card:hover::before{background:var(--gold)}
+.prog-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px}
+.prog-card h3{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:7px}
+.prog-card p{font-size:13px;color:var(--gray);line-height:1.65}
+.prog-badge{display:inline-block;margin-top:12px;font-size:11px;font-weight:600;color:var(--gold);background:var(--gold-pale);padding:3px 10px;border-radius:12px}
+
+/* WHY */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:48px}
+.why-list{display:flex;flex-direction:column;gap:20px}
+.why-item{display:flex;gap:16px;align-items:flex-start}
+.why-num{width:36px;height:36px;background:var(--navy);color:var(--gold-light);font-family:var(--serif);font-size:15px;font-weight:700;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.why-text h4{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:4px}
+.why-text p{font-size:13px;color:var(--gray);line-height:1.65}
+.why-visual{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);border-radius:20px;padding:32px;color:var(--white)}
+.why-visual-title{font-family:var(--serif);font-size:20px;font-weight:700;margin-bottom:20px;color:var(--gold-light)}
+.accredi-list{display:flex;flex-direction:column;gap:10px}
+.accredi-item{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 14px;font-size:13px;color:#c8d8ef}
+.accredi-badge{width:28px;height:28px;background:var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--navy-dark);flex-shrink:0}
+
+/* CAMPUSES */
+.campuses{background:var(--off)}
+.campus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.campus-card{background:var(--navy);border-radius:14px;overflow:hidden;color:var(--white)}
+.campus-thumb{height:130px;display:flex;align-items:center;justify-content:center;font-size:38px}
+.campus-thumb.gn{background:linear-gradient(135deg,#0d2b5e,#1a4080)}
+.campus-thumb.gg{background:linear-gradient(135deg,#122040,#0d2b5e)}
+.campus-thumb.dl{background:linear-gradient(135deg,#1a3870,#0d2b5e)}
+.campus-body{padding:18px}
+.campus-name{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--gold-light);margin-bottom:4px}
+.campus-loc{font-size:11px;color:#8aa0c8;margin-bottom:8px;text-transform:uppercase;letter-spacing:.4px}
+.campus-desc{font-size:12.5px;color:#a8c0e0;line-height:1.6}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,var(--navy-dark),var(--navy));padding:80px 0;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(200,148,10,.07) 1px,transparent 1px);background-size:36px 36px}
+.cta-section h2{font-family:var(--serif);font-size:clamp(28px,4vw,42px);font-weight:700;color:var(--white);margin-bottom:14px;position:relative}
+.cta-section p{font-size:15px;color:#a8c0e0;margin-bottom:32px;position:relative}
+.cta-btns{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;position:relative}
+
+/* FOOTER */
+footer{background:var(--navy-dark);color:#8aa0c8;padding:52px 0 22px}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 24px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px}
+.footer-brand p{font-size:13px;line-height:1.75;max-width:270px;margin-top:12px}
+.footer-col h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--white);margin-bottom:14px}
+.footer-col a{display:block;font-size:13px;color:#8aa0c8;text-decoration:none;margin-bottom:9px;transition:color .2s}
+.footer-col a:hover{color:var(--gold-light)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;display:flex;justify-content:space-between;font-size:12px}
+
+/* ═══ CHAT FAB ═══ */
+#chat-fab{
+  position:fixed;bottom:28px;right:28px;z-index:9999;
+  width:62px;height:62px;border-radius:50%;
+  background:var(--navy);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 28px rgba(13,43,94,.5);
+  transition:all .3s;
+}
+#chat-fab:hover{transform:scale(1.08);background:var(--navy-mid)}
+#chat-fab svg{width:26px;height:26px;stroke:var(--white);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:opacity .25s}
+.icon-chat{opacity:1}
+.icon-close{opacity:0;position:absolute}
+#chat-fab.open .icon-chat{opacity:0}
+#chat-fab.open .icon-close{opacity:1}
+.fab-badge{
+  position:absolute;top:-3px;right:-3px;
+  width:20px;height:20px;background:var(--gold);
+  border-radius:50%;border:2.5px solid var(--white);
+  display:flex;align-items:center;justify-content:center;
+  font-size:9px;font-weight:700;color:var(--navy-dark);
+}
+.fab-badge::after{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  background:var(--gold);animation:fabring 2.2s infinite;z-index:-1;
+}
+@keyframes fabring{0%,100%{transform:scale(1);opacity:.5}60%{transform:scale(1.9);opacity:0}}
+
+/* ═══ CHAT WINDOW ═══ */
+#chat-window{
+  position:fixed;bottom:104px;right:28px;z-index:9998;
+  width:375px;max-height:580px;
+  background:var(--white);
+  border-radius:20px;
+  box-shadow:0 20px 60px rgba(13,43,94,.22),0 0 0 1px rgba(13,43,94,.07);
+  display:flex;flex-direction:column;overflow:hidden;
+  transform:scale(.88) translateY(18px);transform-origin:bottom right;
+  opacity:0;pointer-events:none;
+  transition:transform .32s cubic-bezier(.34,1.56,.64,1),opacity .22s;
+}
+#chat-window.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all}
+
+.chat-hd{
+  background:var(--navy);padding:14px 16px;
+  display:flex;align-items:center;gap:12px;flex-shrink:0;
+}
+.chat-hd-av{width:38px;height:38px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.chat-hd-info{flex:1;min-width:0}
+.chat-hd-name{font-size:14px;font-weight:600;color:var(--white)}
+.chat-hd-sub{font-size:11px;color:#a8c0e0;margin-top:1px;display:flex;align-items:center;gap:5px}
+.chat-dot{width:6px;height:6px;background:#4ade80;border-radius:50%;animation:chatdot 2s infinite}
+@keyframes chatdot{0%,100%{opacity:1}50%{opacity:.3}}
+.chat-close-btn{background:rgba(255,255,255,.1);border:none;color:rgba(255,255,255,.8);width:28px;height:28px;border-radius:6px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.chat-close-btn:hover{background:rgba(255,255,255,.2)}
+
+.chat-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:5px;scroll-behavior:smooth;background:#f9fafb}
+.chat-msgs::-webkit-scrollbar{width:4px}
+.chat-msgs::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:4px}
+
+.chat-welcome-card{background:linear-gradient(135deg,#eef3fb,#e3ecf9);border:1px solid #c3d3ef;border-radius:12px;padding:12px 14px;margin-bottom:8px;font-size:12.5px;color:var(--navy)}
+.chat-welcome-card strong{display:block;font-size:13px;margin-bottom:4px}
+
+.mrow{display:flex;gap:8px;align-items:flex-end;max-width:100%}
+.mrow.bot{justify-content:flex-start}
+.mrow.user{justify-content:flex-end}
+.mav{width:28px;height:28px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.mbbl{max-width:80%;padding:10px 14px;border-radius:16px;font-size:13.5px;line-height:1.6;word-break:break-word}
+.mrow.bot .mbbl{background:var(--white);color:var(--text);border:1px solid #e5e7eb;border-bottom-left-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.mrow.user .mbbl{background:var(--navy);color:var(--white);border-bottom-right-radius:4px}
+.mbbl a{color:var(--gold);font-weight:500}
+.mrow.user .mbbl a{color:#9ec8ff}
+.mts{font-size:10px;color:#9ca3af;padding:0 2px;margin-top:2px}
+.mrow.user .mts{text-align:right}
+
+.typing-row{display:flex;gap:8px;align-items:flex-end}
+.typing-bbl{background:var(--white);border:1px solid #e5e7eb;border-radius:16px;border-bottom-left-radius:4px;padding:12px 16px;display:flex;gap:5px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.typing-bbl span{width:7px;height:7px;background:var(--navy);border-radius:50%;animation:tdot 1.2s infinite}
+.typing-bbl span:nth-child(2){animation-delay:.2s}
+.typing-bbl span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-7px)}}
+
+.chat-suggs{padding:8px 12px 4px;display:flex;flex-wrap:wrap;gap:6px;flex-shrink:0;background:var(--white);border-top:1px solid #f0f0f0}
+.sugg-lbl{font-size:10.5px;color:#9ca3af;width:100%;margin-bottom:2px}
+.sbtn{background:#f0f4ff;color:var(--navy);border:1px solid #c3d3ef;border-radius:16px;padding:5px 12px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;transition:all .15s;font-family:var(--sans)}
+.sbtn:hover{background:var(--navy);color:var(--white);border-color:var(--navy);transform:translateY(-1px)}
+
+.chat-inp-bar{padding:10px 12px 12px;background:var(--white);border-top:1px solid #e5e7eb;flex-shrink:0}
+.chat-inp-row{display:flex;gap:8px;align-items:flex-end;background:#f3f4f6;border:1.5px solid #e5e7eb;border-radius:22px;padding:7px 8px 7px 14px;transition:border-color .2s}
+.chat-inp-row:focus-within{border-color:var(--navy)}
+#chatInput{flex:1;border:none;background:transparent;font-size:13.5px;color:var(--text);resize:none;outline:none;max-height:80px;font-family:var(--sans);line-height:1.5}
+#chatInput::placeholder{color:#9ca3af}
+#chatSend{width:34px;height:34px;background:var(--navy);color:var(--white);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:all .2s}
+#chatSend:hover{background:var(--navy-mid);transform:scale(1.06)}
+#chatSend svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.chat-hint{font-size:10px;color:#9ca3af;text-align:center;margin-top:6px}
+
+@media(max-width:768px){
+  .hero-content{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .why-grid,.footer-grid{grid-template-columns:1fr}
+  .why-visual{display:none}
+  .campus-grid{grid-template-columns:1fr}
+  .stats-bar-inner{grid-template-columns:repeat(2,1fr)}
+  .nav-links{display:none}
+  #chat-window{width:calc(100vw - 24px);right:12px;bottom:86px}
+  #chat-fab{right:14px;bottom:18px}
+}
+@media(max-width:480px){.topbar{display:none}.footer-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-links">
+      <a href="#">Alumni Portal</a>
+      <a href="#">Student Login</a>
+      <a href="#">Faculty</a>
+      <a href="#">Research</a>
+    </div>
+    <div class="topbar-contact">
+      <a href="tel:+918065905220">📞 +91-80 6590 5220</a>
+      <a href="mailto:admissions@iilm.edu">✉ admissions@iilm.edu</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-badge">IU</div>
+      <div>
+        <span class="logo-name">IILM University</span>
+        <span class="logo-sub">Greater Noida · Gurugram · New Delhi</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#" class="active">Home</a>
+      <a href="#programs">Programs</a>
+      <a href="#campuses">Campuses</a>
+      <a href="#">Placements</a>
+      <a href="#">Research</a>
+      <a href="#">About</a>
+      <a href="https://iilm.edu/apply-now/" target="_blank" class="nav-cta">Apply Now →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-tag">UGC Recognised · Est. 1993 · 3 Campuses</div>
+      <h1>Developing <em>Leaders</em><br>for Tomorrow's World</h1>
+      <p class="hero-desc">IILM University offers 40+ programs across Management, Engineering, Law, Liberal Arts, Design, and Hospitality — with world-class campuses across Delhi NCR.</p>
+      <div class="hero-actions">
+        <a href="https://iilm.edu/apply-now/" target="_blank" class="btn-gold">Apply for 2025–26 →</a>
+        <a href="#programs" class="btn-ghost">Explore Programs</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">30+</div><div class="stat-label">Years Excellence</div></div>
+        <div class="stat"><div class="stat-num">40+</div><div class="stat-label">Programs</div></div>
+        <div class="stat"><div class="stat-num">16K+</div><div class="stat-label">Alumni Worldwide</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-title">Programs at IILM</div>
+        <div class="prog-item"><span class="prog-dot"></span>MBA · BBA · PGDM · Management Technology</div>
+        <div class="prog-item"><span class="prog-dot"></span>B.Tech · M.Tech · BCA · MCA</div>
+        <div class="prog-item"><span class="prog-dot"></span>BA LLB · BBA LLB · LLM</div>
+        <div class="prog-item"><span class="prog-dot"></span>Liberal Arts · Psychology · Design</div>
+        <div class="prog-item"><span class="prog-dot"></span>Hospitality · Communication</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-title">Placement Highlights 2024</div>
+        <div class="prog-item"><span class="prog-dot"></span>Highest Package — ₹20 LPA</div>
+        <div class="prog-item"><span class="prog-dot"></span>Average Package — ₹8.6 LPA</div>
+        <div class="prog-item"><span class="prog-dot"></span>Top Recruiters: KPMG, Deloitte, Wipro, HDFC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="sbar-item"><div class="sbar-num">26 Acres</div><div class="sbar-label">Greater Noida Campus</div></div>
+    <div class="sbar-item"><div class="sbar-num">Top 50</div><div class="sbar-label">NIRF Private Universities</div></div>
+    <div class="sbar-item"><div class="sbar-num">UGC + BCI</div><div class="sbar-label">Approved & Accredited</div></div>
+    <div class="sbar-item"><div class="sbar-num">3 Campuses</div><div class="sbar-label">Across NCR Region</div></div>
+  </div>
+</div>
+
+<!-- PROGRAMS -->
+<section class="programs" id="programs">
+  <div class="section-inner">
+    <div class="section-label">Academic Excellence</div>
+    <div class="section-title">Find Your Program</div>
+    <div class="section-desc">From business leadership to engineering innovation — explore programs designed for global careers.</div>
+    <div class="prog-grid">
+      <div class="prog-card">
+        <div class="prog-icon" style="background:#eef3fb">💼</div>
+        <h3>Management</h3>
+        <p>MBA, BBA, PGDM, and MBA in Management Technology. Industry-integrated curriculum with strong placement outcomes.</p>
+        <span class="prog-badge">UG + PG</span>
+      </div>
+      <div class="prog-card">
+        <div class="prog-icon" style="background:#fdf3d8">⚙️</div>
+        <h3>Engineering & Technology</h3>
+        <p>B.Tech, M.Tech, BCA, MCA across CSE, AI/ML, Electronics, Mechanical, and Biotechnology specializations.</p>
+        <span class="prog-badge">UG + PG</span>
+      </div>
+      <div class="prog-card">
+        <div class="prog-icon" style="background:#fef2f2">⚖️</div>
+        <h3>Law</h3>
+        <p>BA LLB (Hons), BBA LLB (Hons), and LLM programs — approved by the Bar Council of India.</p>
+        <span class="prog-badge">BCI Approved</span>
+      </div>
+      <div class="prog-card">
+        <div class="prog-icon" style="background:#f0fdf4">🎨</div>
+        <h3>Liberal Arts & Design</h3>
+        <p>Creative and interdisciplinary programs in Design, Liberal Arts, Psychology, and Mass Communication.</p>
+        <span class="prog-badge">UG Programs</span>
+      </div>
+      <div class="prog-card">
+        <div class="prog-icon" style="background:#fdf4ff">🏨</div>
+        <h3>Hospitality</h3>
+        <p>Industry-ready hospitality programs with practical training, industry exposure, and strong placement support.</p>
+        <span class="prog-badge">UG Programs</span>
+      </div>
+      <div class="prog-card" style="background:var(--navy);border-color:var(--navy)">
+        <div class="prog-icon" style="background:rgba(200,148,10,.2)">🤖</div>
+        <h3 style="color:var(--gold-light)">Not Sure Which to Pick?</h3>
+        <p style="color:#a8c0e0">Ask our AI Admission Assistant — get instant answers on eligibility, fees, placements, and program fit.</p>
+        <button onclick="openChat()" style="margin-top:14px;background:var(--gold);color:var(--navy-dark);border:none;padding:10px 18px;border-radius:8px;font-weight:600;font-size:13px;cursor:pointer;font-family:var(--sans)">Ask the Chatbot →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY IILM -->
+<section>
+  <div class="section-inner">
+    <div class="section-label">Why Choose IILM</div>
+    <div class="section-title">30 Years of Shaping Leaders</div>
+    <div class="why-grid">
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <div class="why-text"><h4>Industry-Integrated Curriculum</h4><p>Programs co-designed with corporate partners — every course bridges theory with real-world application and live industry projects.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <div class="why-text"><h4>Strong Placement Record</h4><p>Highest package of ₹20 LPA, 500+ recruiters including KPMG, Deloitte, Wipro, Reliance, and HDFC Bank visiting campus annually.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">03</div>
+          <div class="why-text"><h4>Global Exposure</h4><p>International exchange programs with partner universities across UK, USA, Canada, and Europe for a genuinely global academic experience.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">04</div>
+          <div class="why-text"><h4>Merit Scholarships</h4><p>Scholarship programs for academically excellent students — rewarding hard work and making quality education accessible to deserving students.</p></div>
+        </div>
+      </div>
+      <div class="why-visual">
+        <div class="why-visual-title">Recognitions & Accreditations</div>
+        <div class="accredi-list">
+          <div class="accredi-item"><div class="accredi-badge">UGC</div>University Grants Commission Recognised</div>
+          <div class="accredi-item"><div class="accredi-badge">BCI</div>Bar Council of India Approved</div>
+          <div class="accredi-item"><div class="accredi-badge">AIU</div>Association of Indian Universities Member</div>
+          <div class="accredi-item"><div class="accredi-badge">NBA</div>National Board of Accreditation</div>
+          <div class="accredi-item"><div class="accredi-badge">T50</div>NIRF Top 50 Private Universities (Mgmt + Engg)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPUSES -->
+<section class="campuses" id="campuses">
+  <div class="section-inner">
+    <div class="section-label">Our Locations</div>
+    <div class="section-title">Three World-Class Campuses Across NCR</div>
+    <div class="campus-grid">
+      <div class="campus-card">
+        <div class="campus-thumb gn">🏛️</div>
+        <div class="campus-body">
+          <div class="campus-name">IILM University — Greater Noida</div>
+          <div class="campus-loc">Knowledge Park II, Greater Noida, UP</div>
+          <div class="campus-desc">26-acre campus offering Engineering, Management, Law, Liberal Arts. Founded 2001 under UP Private University Act 2022. 40+ programs.</div>
+        </div>
+      </div>
+      <div class="campus-card">
+        <div class="campus-thumb gg">🏫</div>
+        <div class="campus-body">
+          <div class="campus-name">IILM University — Gurugram</div>
+          <div class="campus-loc">DLF Cyber City, Gurugram, Haryana</div>
+          <div class="campus-desc">UGC-recognised private university since 2004. Programs in Management, Law, Engineering, Design, Psychology — 25+ programs total.</div>
+        </div>
+      </div>
+      <div class="campus-card">
+        <div class="campus-thumb dl">🎓</div>
+        <div class="campus-body">
+          <div class="campus-name">IILM — Lodhi Road, New Delhi</div>
+          <div class="campus-loc">Lodhi Road, Lutyens' Delhi, New Delhi</div>
+          <div class="campus-desc">AICTE-approved PGDM and BBA since 1993. 3-acre campus blending global exposure with rigorous academics and industry insights.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-inner">
+    <h2>Ready to Begin Your Journey?</h2>
+    <p>Applications are open for the 2025–26 academic session. Secure your seat today.</p>
+    <div class="cta-btns">
+      <a href="https://iilm.edu/apply-now/" target="_blank" class="btn-gold" style="font-size:15px;padding:15px 32px">Apply Now →</a>
+      <button onclick="openChat()" class="btn-ghost" style="font-size:15px;padding:14px 30px;font-family:var(--sans);cursor:pointer">💬 Ask a Question</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo" style="display:inline-flex;text-decoration:none">
+          <div class="logo-badge" style="width:38px;height:38px;font-size:15px">IU</div>
+          <div style="margin-left:10px">
+            <span class="logo-name" style="font-size:15px">IILM University</span>
+            <span class="logo-sub">Est. 1993 · UGC Recognised</span>
+          </div>
+        </a>
+        <p>Empowering students with education that challenges intellect and connects with the real world. Building leaders for over 30 years.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <a href="#">MBA / BBA / PGDM</a>
+        <a href="#">B.Tech / M.Tech</a>
+        <a href="#">BA LLB / LLM</a>
+        <a href="#">Liberal Arts</a>
+        <a href="#">Design & Fashion</a>
+        <a href="#">Hospitality</a>
+      </div>
+      <div class="footer-col">
+        <h4>Admissions</h4>
+        <a href="https://iilm.edu/admissions/" target="_blank">How to Apply</a>
+        <a href="https://iilm.edu/apply-now/" target="_blank">Apply Online</a>
+        <a href="#">Eligibility Criteria</a>
+        <a href="#">Scholarships</a>
+        <a href="#">Fee Structure</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+918065905220">+91-80 6590 5220</a>
+        <a href="mailto:admissions@iilm.edu">admissions@iilm.edu</a>
+        <a href="https://iilm.edu/contact/" target="_blank">Contact Page</a>
+        <a href="#">Campuses & Maps</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 IILM University. All rights reserved.</span>
+      <span>Privacy Policy · Terms of Use</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════ -->
+<!-- CHATBOT FAB + WINDOW                  -->
+<!-- ══════════════════════════════════════ -->
+<button id="chat-fab" onclick="toggleChat()" aria-label="Open admission chatbot">
+  <div class="fab-badge">!</div>
+  <svg class="icon-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+</button>
+
+<div id="chat-window" role="dialog" aria-label="IILM Admission Helpdesk">
+  <div class="chat-hd">
+    <div class="chat-hd-av">🎓</div>
+    <div class="chat-hd-info">
+      <div class="chat-hd-name">IILM Admission Assistant</div>
+      <div class="chat-hd-sub"><span class="chat-dot"></span>Online · Replies instantly</div>
+    </div>
+    <button class="chat-close-btn" onclick="toggleChat()">✕</button>
+  </div>
+
+  <div class="chat-msgs" id="chatMessages">
+    <div class="chat-welcome-card">
+      <strong>👋 Hi! I'm the IILM Admission Assistant.</strong>
+      Ask me about courses, eligibility, fees, placements, hostel, scholarships — anything about IILM!
+    </div>
+    <div class="mrow bot">
+      <div class="mav">🤖</div>
+      <div>
+        <div class="mbbl">Hello! How can I help you with IILM admissions today? 😊</div>
+        <div class="mts" id="welcomeTs"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-suggs" id="chatSuggs">
+    <div class="sugg-lbl">💡 Quick questions:</div>
+    <button class="sbtn" onclick="sendSugg(this)">Courses offered?</button>
+    <button class="sbtn" onclick="sendSugg(this)">BTech eligibility?</button>
+    <button class="sbtn" onclick="sendSugg(this)">Fee structure</button>
+    <button class="sbtn" onclick="sendSugg(this)">Scholarships?</button>
+    <button class="sbtn" onclick="sendSugg(this)">How to apply?</button>
+  </div>
+
+  <div class="chat-inp-bar">
+    <div class="chat-inp-row">
+      <textarea id="chatInput" rows="1" placeholder="Type your question here…" autocomplete="off"></textarea>
+      <button id="chatSend" onclick="sendMsg()">
+        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+    <div class="chat-hint">Press Enter to send · Shift+Enter for new line</div>
+  </div>
+</div>
+
+<script>
+const fab=document.getElementById('chat-fab'),win=document.getElementById('chat-window'),
+      chatMsgs=document.getElementById('chatMessages'),chatSuggs=document.getElementById('chatSuggs'),
+      inp=document.getElementById('chatInput');
+let isOpen=false;
+
+document.getElementById('welcomeTs').textContent=ts();
+function ts(){return new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});}
+function scrollBot(){chatMsgs.scrollTop=chatMsgs.scrollHeight;}
+
+function toggleChat(){isOpen=!isOpen;win.classList.toggle('open',isOpen);fab.classList.toggle('open',isOpen);if(isOpen){inp.focus();scrollBot();}}
+function openChat(){if(!isOpen)toggleChat();}
+
+function fmt(t){
+  t=t.replace(/(https?:\/\/[^\s]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>');
+  t=t.replace(/\n/g,'<br>');
+  return t;
+}
+
+function addMsg(role,text){
+  const row=document.createElement('div');row.className='mrow '+role;
+  const bbl=document.createElement('div');bbl.className='mbbl';bbl.innerHTML=fmt(text);
+  const ts_el=document.createElement('div');ts_el.className='mts';ts_el.textContent=ts();
+  const wrap=document.createElement('div');wrap.appendChild(bbl);wrap.appendChild(ts_el);
+  if(role==='bot'){const av=document.createElement('div');av.className='mav';av.textContent='🤖';row.appendChild(av);}
+  row.appendChild(wrap);chatMsgs.appendChild(row);scrollBot();
+}
+
+function showTyping(){
+  const row=document.createElement('div');row.className='typing-row';row.id='typingRow';
+  const av=document.createElement('div');av.className='mav';av.textContent='🤖';
+  const bbl=document.createElement('div');bbl.className='typing-bbl';
+  bbl.innerHTML='<span></span><span></span><span></span>';
+  row.appendChild(av);row.appendChild(bbl);chatMsgs.appendChild(row);scrollBot();
+}
+function hideTyping(){const el=document.getElementById('typingRow');if(el)el.remove();}
+
+function showSuggs(list){
+  chatSuggs.innerHTML='';
+  if(!list||!list.length)return;
+  const lbl=document.createElement('div');lbl.className='sugg-lbl';lbl.textContent='💡 You might also ask:';
+  chatSuggs.appendChild(lbl);
+  list.forEach(s=>{
+    const b=document.createElement('button');b.className='sbtn';b.textContent=s;
+    b.onclick=()=>sendSugg(b);chatSuggs.appendChild(b);
+  });
+}
+
+function sendSugg(btn){inp.value=btn.textContent;sendMsg();}
+
+async function sendMsg(){
+  const text=inp.value.trim();if(!text)return;
+  inp.value='';inp.style.height='auto';chatSuggs.innerHTML='';
+  addMsg('user',text);showTyping();
+  try{
+    const r=await fetch('/get',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text})});
+    const d=await r.json();hideTyping();
+    addMsg('bot',d.response||'Sorry, I could not process that.');
+    showSuggs(d.suggestions||[]);
+  }catch(e){hideTyping();addMsg('bot','Connection error. Please try again in a moment.');}
+}
+
+inp.addEventListener('input',()=>{inp.style.height='auto';inp.style.height=Math.min(inp.scrollHeight,80)+'px';});
+inp.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg();}});
+</script>
+</body>
+</html>
